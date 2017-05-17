@@ -53,7 +53,7 @@
  }
  
  void loop() {
-   delay(5000); // Run every  seconds
+   delay(300000); // Run every 5 minutes
  
    Serial.println("Recording data.");
  
