@@ -1,0 +1,6 @@
+{
+    "board": "esp8266:esp8266:nodemcuv2",
+    "configuration": "CpuFrequency=160,UploadTool=esptool,UploadSpeed=115200,FlashSize=4M3M",
+    "port": "/dev/cu.wchusbserial410",
+    "sketch": "mysql_connect.ino"
+}
