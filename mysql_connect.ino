@@ -16,8 +16,13 @@
  char ssid[] = "Research & Development";                     // your SSID
  char pass[] = "Eddy&Gail";                     // your SSID Password
  
+ // Variables
+ int digital = 0;
+ char device[] = "NodeMCU_Lolin";
+
  // Sample query
- char INSERT_SQL[] = "INSERT INTO arduino.data (digital) VALUES ('1')";
+ char INSERT_DATA[] = "INSERT INTO arduino.data (device, digital) VALUES ('%s',%d)";
+ char query[128];
  
  WiFiClient client;
  MySQL_Connection conn((Client *)&client);
@@ -54,8 +59,10 @@
  
    // Initiate the query class instance
    MySQL_Cursor *cur_mem = new MySQL_Cursor(&conn);
+   // Save
+    sprintf(query, INSERT_DATA, device, digital);
    // Execute the query
-   cur_mem->execute(INSERT_SQL);
+   cur_mem->execute(query);
    // Note: since there are no results, we do not need to read any data
    // Deleting the cursor also frees up memory used
    delete cur_mem;
